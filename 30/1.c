@@ -21,11 +21,11 @@ void bookinfo(char *title,char *author,int *price,int *flag){
 }
 
 void listauthor(char title[100][100],char author[100][100],int count){
-    char user;
+    char user[100];
     printf("Enter author name: ");
     scanf("%s",&user);
     for (int i=0;i<count;i++){
-        if (user==*author[i]){
+        if (*user==*author[i]){
             printf("book: %s\n",title[i]);
         }
     }
@@ -56,8 +56,21 @@ int main(){
             case 3:
                 listauthor(lie.title,lie.author,count);
                 break;
+            case 4:
+                int acc;
+                printf("Enter accession number: ");
+                scanf("%d",&acc);
+                printf("Title of the book is %s\n",lie.title[acc]);
+                break;
+            case 5:
+                printf("no of books %d\n",count);
+                break;
+            case 6:
+                for (int i=0;i<count;i++){
+                    printf("%d %s\n",lie.number[i],lie.title[i]);
+                    }
+                break;
             default:
-                printf("test");
                 break;
         }
     }while(user!=7);
